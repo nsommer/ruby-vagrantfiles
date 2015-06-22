@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # Use Ubuntu 14.04
+  config.vm.box = "ubuntu/trusty64"
+
+  # Sets up rbenv and the specified ruby version.
+  config.vm.provision "shell", path: "provision/setup.sh", privileged: false
+end
