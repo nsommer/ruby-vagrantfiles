@@ -8,5 +8,6 @@ cd /vagrant
 bundle install
 
 # Start the development server.
-echo "To see the rails logs, open an SSH session and type `tail -f /tmp/rails-dev.log`."
-rails server >> /tmp/rails-dev.log 2>&1
+# Bind requests to 0.0.0.0 to forward requests from the host to the VM.
+echo "To see the rails logs, type `vagrant ssh -- \"tail -f /tmp/rails-dev.log`\"."
+rails server -b 0.0.0.0 >> /tmp/rails-dev.log 2>&1
