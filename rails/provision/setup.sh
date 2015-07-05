@@ -10,9 +10,9 @@ ruby_version=$(cat /vagrant/.ruby-version)
 
 echo "Setting up rbenv and ruby $ruby_version"
 
-# Install git, sqlite, bundler and build dependencies for ruby.
+# Install stuff needed for rails apps.
 sudo apt-get update
-sudo apt-get install git bundler sqlite3 $ruby_deps -y
+sudo apt-get install git sqlite3 libsqlite3-dev nodejs $ruby_deps -y
 
 # Install and setup rbenv.
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -34,6 +34,10 @@ rbenv install $ruby_version
 
 # Override global ruby version.
 rbenv global $ruby_version
+
+# Install bundler.
+gem install bundler
+rbenv rehash
 
 # Print useful information.
 echo "If you add gems that install ruby executables, type `rbenv rehash` to install the corresponding shims."
