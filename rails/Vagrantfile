@@ -29,5 +29,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "provision/setup.sh", privileged: false
 
   # Run this on every startup to deploy and start the app.
-  config.vm.provision "shell", path: "provision/deploy.sh", priviledged: false, run: "always"
+  config.vm.provision "shell", path: "provision/deploy.sh", privileged: false, run: "always"
 end
