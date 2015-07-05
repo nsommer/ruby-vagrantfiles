@@ -21,6 +21,5 @@ The default HTTP port of the built in rails server (3000) is forwarded from the 
 The logs from the development server are directed into a text file. You can read them by typing:
 
 ```bash
-vagrant ssh
-tail -f /tmp/rails-server.log
+vagrant ssh -- "tail -f /tmp/rails-dev.log"
 ```
