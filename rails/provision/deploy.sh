@@ -6,6 +6,7 @@ cd /vagrant
 
 # Install missing gems.
 bundle install
+rbenv rehash
 
 # Start the development server.
 # Bind requests to 0.0.0.0 to forward requests from the host to the VM.
