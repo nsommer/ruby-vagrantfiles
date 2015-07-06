@@ -18,8 +18,8 @@ The `rails` directory contains a Vagrantfile and a provisioning that do the same
 However, there is also another script that runs everytime you call `vagrant up`. This script installs the gems from your *Gemfile* and starts the ruby development server.
 The default HTTP port of the built in rails server (3000) is forwarded from the VM to your host so you can access your webapp from the browser as you would when running the webapp on your host.
 
-The logs from the development server are directed into a text file. You can read them by typing:
+The built in development server of rails is started as a daemon at startup, but as the applications root is shared between the host and the VM, you can view the logs using the following command.
 
 ```bash
-vagrant ssh -- "tail -f /tmp/rails-dev.log"
+tail -f log/development.log
 ```

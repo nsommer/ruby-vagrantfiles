@@ -17,17 +17,17 @@ sudo apt-get install git sqlite3 libsqlite3-dev nodejs $ruby_deps -y
 # Install and setup rbenv.
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+# Update PATH in .bashrc for interactive shells.
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-# It would be cleaner to just source .bashrc rather than repeating the commands here,
-# but for whatever reason that doesn't work
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Update PATH in .profile for remote login shells.
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.profile
+echo 'eval "$(rbenv init -)"' >> ~/.profile
 
-# Reload bash profile to update PATH.
-# Does not work for whatever reason.
-# source ~/.bashrc
+# Make the PATH changes available in the current session.
+source ~/.profile
 
 # Install ruby.
 rbenv install $ruby_version
@@ -40,4 +40,4 @@ gem install bundler
 rbenv rehash
 
 # Print useful information.
-echo "If you add gems that install ruby executables, type `rbenv rehash` to install the corresponding shims."
+echo 'If you add gems that install ruby executables, type `rbenv rehash` to install the corresponding shims.'
