@@ -31,7 +31,7 @@
         <h3>
 <a id="consistent-environments-for-ruby-apps-with-vagrant" class="anchor" href="#consistent-environments-for-ruby-apps-with-vagrant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Consistent environments for Ruby apps with Vagrant</h3>
 
-<p><a href="https://www.ruby-lang.org/">Ruby</a> is an interpreted, object oriented scripting language that runs on most major operating systems. However, applications might still depend on specific ruby versions or other system libraries which makes it desirable to create a consistend and isolated environment to run your ruby apps.</p>
+<p><a href="https://www.ruby-lang.org/">Ruby</a> is an interpreted, object oriented scripting language that runs on most major operating systems. However, applications might still depend on specific ruby versions or other system libraries which makes it desirable to create a consistent and isolated environment to run your ruby apps.</p>
 
 <p>To achieve this, the popular tools <a href="https://www.vagrantup.com/">Vagrant</a> and <a href="https://github.com/sstephenson/rbenv">rbenv</a> can be used. Vagrant can be used to setup and run virtual machines easily. rbenv is used to manage multiple specific versions of ruby.</p>
 
@@ -43,12 +43,12 @@
 <h4>
 <a id="standard-ruby-apps" class="anchor" href="#standard-ruby-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard ruby apps</h4>
 
-<p>If you develop a simple ruby application, place the content of <code>ruby/</code> in your applications root directory. It sets up an Ubuntu virtual machine using Vagrant and installs the current version of rbenv in it. After that, it downloads and sets up the version of the ruby interpreter that is specified in the <code>.ruby-version</code> file. If you require a different version of ruby, adjust the version number in the file to your needs.</p>
+<p>If you develop a simple ruby application, place the content of <code>ruby/</code> in your applications root directory. The provisioning scripts set up an Ubuntu virtual machine using Vagrant and install the current version of rbenv in it. After that, it downloads and sets up the version of the ruby interpreter that is specified in the <code>.ruby-version</code> file. If you require a different version of ruby, adjust the version number in the file to your needs.</p>
 
 <h4>
 <a id="ruby-on-rails-apps" class="anchor" href="#ruby-on-rails-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby on Rails apps</h4>
 
-<p>If you develop a ruby application that uses the popular <a href="http://rubyonrails.org/">Ruby on Rails</a> framework, place the content of <code>rails/</code> into your applications root directory. The provisioning files there basically do the same as the ones for simple ruby apps. However, they do some additional stuff useful for rails development. The http port <em>3000</em> which is the standard port of the built in rails webserver is forwarded to the host machine. Rails, SQLite and a javascript engine (nodejs) are being preinstalled. Every time the virtual machine starts, all missing gems from the <em>Gemfile</em> in <code>/vagrant</code> are installed and the built in rails webserver is started.</p>
+<p>If you develop a ruby application that uses the popular <a href="http://rubyonrails.org/">Ruby on Rails</a> framework, place the content of <code>rails/</code> into your applications root directory. The provisioning files there basically do the same as the ones for simple ruby apps. However, they do some additional useful things for rails development. The http port <em>3000</em> which is the standard port of the built in rails webserver is forwarded to the host machine. Rails, SQLite and a javascript engine (nodejs) are being preinstalled. Every time the virtual machine starts, all missing gems from the <em>Gemfile</em> in <code>/vagrant</code> are installed and the built in rails webserver is started.</p>
 
 <p>To start development type:</p>
 
