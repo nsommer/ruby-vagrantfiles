@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ruby-vagrantfiles by nsommer</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ruby-vagrantfiles</h1>
+        <p>Vagrantfiles and provisioning scripts for ruby application development.</p>
+
+        <p class="view"><a href="https://github.com/nsommer/ruby-vagrantfiles">View the Project on GitHub <small>nsommer/ruby-vagrantfiles</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/nsommer/ruby-vagrantfiles/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nsommer/ruby-vagrantfiles/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nsommer/ruby-vagrantfiles">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="consistent-environments-for-ruby-apps-with-vagrant" class="anchor" href="#consistent-environments-for-ruby-apps-with-vagrant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Consistent environments for Ruby apps with Vagrant</h3>
+
+<p><a href="https://www.ruby-lang.org/">Ruby</a> is an interpreted, object oriented scripting language that runs on most major operating systems. However, applications might still depend on specific ruby versions or other system libraries which makes it desirable to create a consistend and isolated environment to run your ruby apps.</p>
+
+<p>To achieve this, the popular tools <a href="https://www.vagrantup.com/">Vagrant</a> and <a href="https://github.com/sstephenson/rbenv">rbenv</a> can be used. Vagrant can be used to setup and run virtual machines easily. rbenv is used to manage multiple specific versions of ruby.</p>
+
+<h3>
+<a id="what-the-repository-provides" class="anchor" href="#what-the-repository-provides" aria-hidden="true"><span class="octicon octicon-link"></span></a>What the repository provides</h3>
+
+<p>This repository provides skripts that set up virtual machines using Vagrant and configures rbenv for your application.</p>
+
+<h4>
+<a id="standard-ruby-apps" class="anchor" href="#standard-ruby-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard ruby apps</h4>
+
+<p>If you develop a simple ruby application, place the content of <code>ruby/</code> in your applications root directory. It sets up an Ubuntu virtual machine using Vagrant and installs the current version of rbenv in it. After that, it downloads and sets up the version of the ruby interpreter that is specified in the <code>.ruby-version</code> file. If you require a different version of ruby, adjust the version number in the file to your needs.</p>
+
+<h4>
+<a id="ruby-on-rails-apps" class="anchor" href="#ruby-on-rails-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby on Rails apps</h4>
+
+<p>If you develop a ruby application that uses the popular <a href="http://rubyonrails.org/">Ruby on Rails</a> framework, place the content of <code>rails/</code> into your applications root directory. The provisioning files there basically do the same as the ones for simple ruby apps. However, they do some additional stuff useful for rails development. The http port <em>3000</em> which is the standard port of the built in rails webserver is forwarded to the host machine. Rails, SQLite and a javascript engine (nodejs) are being preinstalled. Every time the virtual machine starts, all missing gems from the <em>Gemfile</em> in <code>/vagrant</code> are installed and the built in rails webserver is started.</p>
+
+<p>To start development type:</p>
+
+<div class="highlight highlight-bash"><pre>vagrant up
+tail -f /log/development.log</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nsommer">nsommer</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
